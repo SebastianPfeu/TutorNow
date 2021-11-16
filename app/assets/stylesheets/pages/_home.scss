@@ -1,5 +1,17 @@
 // Specific CSS for your home-page
+@import "components/font";
+@import "components/color";
 
 .subjects-stack img {
   height: 500px,
+}
+
+.heading-font {
+  font-family: $font;
+  font-weight: 500;
+}
+
+.subhead-font {
+  font-family: $font;
+  font-weight: 200;
 }
