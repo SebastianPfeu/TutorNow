@@ -1,7 +1,7 @@
 <div class="container">
   <%= simple_form_for(@offer) do |f| %>
     <%= f.input :subject %>
-    <%= f.input :level %>
+    <%= f.input :level, collection: [ "Beginner", "Intermediate", "Advanced" ] %>
     <%= f.input :price %>
     <%= f.input :description %>
     <%= f.submit %>
