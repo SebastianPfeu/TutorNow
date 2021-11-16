@@ -1,4 +1,9 @@
 class OffersController < ApplicationController
+
+  def index
+    @offers = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+  end
+
   def new
     @offer = Offer.new
   end
