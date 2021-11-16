@@ -1,0 +1,12 @@
+<div>
+  <% @offers.each do |offer| %>
+
+      <div>
+        <%= offer.user %>
+        <%= offer.subject %>
+        <%= offer.description %>
+      </div>
+
+  <% end %>
+</div>
+    <%=  @offers.all.count %>
