@@ -1,18 +1,32 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">You as student</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">You as teacher</a>
-  </li>
-</ul>
+<div class="container">
+  <div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">You as student</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">You as teacher</a>
+      </li>
+    </ul>
+  </div>
 
-<div>
-  <% @appointments.each do |appointment| %>
-    <h4><%= appointment.offer.subject %></h4>
-    <p><%= appointment.offer.user.first_name %> <%= appointment.offer.user.last_name %></p>
-    <p><%= appointment.offer.price %> €</p>
-    <p><%= appointment.start_time %></p>
-    <p><%= appointment.end_time %></p>
-  <% end %>
+  <div class="row d-flex">
+    <% @appointments.each do |appointment| %>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="app-card">
+          <h4><%= appointment.offer.subject.capitalize %></h4>
+          <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
+          <div class="icon-size info-right">
+            <div>
+              <p><%= image_tag("logo/euro.png") %><%= appointment.offer.price %></p>
+            </div>
+            <div>
+              <p><%= image_tag("logo/time.png") %><%= appointment.start_time %></p>
+              <p class=""><%= appointment.end_time %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
