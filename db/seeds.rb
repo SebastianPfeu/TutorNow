@@ -18,7 +18,7 @@ Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "geography",
 Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "history", level: "advanced", price: 28, description: "I teach History")
 Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "sports", level: "intermediate", price: 22, description: "I teach German")
 
-#! Creates 20 appointments
+# Creates 20 appointments
 Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,11,18,2,0,0), end_time: DateTime.new(2021,11,18,3,0,0))
 Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,11,19,2,0,0), end_time: DateTime.new(2021,11,19,3,0,0))
 Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "physics"), start_time: DateTime.new(2021,11,20,2,0,0), end_time: DateTime.new(2021,11,20,3,0,0))
@@ -33,9 +33,16 @@ Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_
 Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "french"), start_time: DateTime.new(2021,11,29,2,0,0), end_time: DateTime.new(2021,11,29,3,0,0))
 Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "spanish"), start_time: DateTime.new(2021,11,30,2,0,0), end_time: DateTime.new(2021,11,30,3,0,0))
 Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "spanish"), start_time: DateTime.new(2021,12,1,2,0,0), end_time: DateTime.new(2021,12,1,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "geography"), start_time: DateTime.new(2021,12,2,2,0,0), end_time: DateTime.new(2021,11,2,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "geography"), start_time: DateTime.new(2021,12,3,2,0,0), end_time: DateTime.new(2021,11,3,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,4,2,0,0), end_time: DateTime.new(2021,11,4,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,5,2,0,0), end_time: DateTime.new(2021,11,5,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "sports"), start_time: DateTime.new(2021,12,6,2,0,0), end_time: DateTime.new(2021,11,6,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "sports"), start_time: DateTime.new(2021,12,7,2,0,0), end_time: DateTime.new(2021,11,7,3,0,0))
+Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "geography"), start_time: DateTime.new(2021,12,2,2,0,0), end_time: DateTime.new(2021,12,2,3,0,0))
+Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "geography"), start_time: DateTime.new(2021,12,3,2,0,0), end_time: DateTime.new(2021,12,3,3,0,0))
+Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,4,2,0,0), end_time: DateTime.new(2021,12,4,3,0,0))
+Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,5,2,0,0), end_time: DateTime.new(2021,12,5,3,0,0))
+Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "sports"), start_time: DateTime.new(2021,12,6,2,0,0), end_time: DateTime.new(2021,12,6,3,0,0))
+Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "sports"), start_time: DateTime.new(2021,12,7,2,0,0), end_time: DateTime.new(2021,12,7,3,0,0))
+
+# Create one unbooked appointment
+Appointment.create!(user: nil, offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,12,8,2,0,0), end_time: DateTime.new(2021,12,8,3,0,0))
+Appointment.create!(user: nil, offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,9,2,0,0), end_time: DateTime.new(2021,12,9,3,0,0))
+Appointment.create!(user: nil, offer: Offer.find_by(subject: "mathematics"), start_time: DateTime.new(2021,12,10,2,0,0), end_time: DateTime.new(2021,12,10,3,0,0))
+Appointment.create!(user: nil, offer: Offer.find_by(subject: "english"), start_time: DateTime.new(2021,12,11,2,0,0), end_time: DateTime.new(2021,12,11,3,0,0))
+Appointment.create!(user: nil, offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,12,12,2,0,0), end_time: DateTime.new(2021,12,12,3,0,0))

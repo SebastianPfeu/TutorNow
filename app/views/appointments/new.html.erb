@@ -1,0 +1,8 @@
+<form action="/offers/<%= @offer.id %>/appointments" method="post">
+  <% @free_appointments.each do |appointment| %>
+    <input type="radio" id="<%= appointment.start_time %>" name="id" value="<%= appointment.id %>">
+    <label for="<%= appointment.start_time %>"><%= appointment.start_time %></label>
+  <% end %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="submit" value="Book now" class="btn btn-primary">
+</form>
