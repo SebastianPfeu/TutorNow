@@ -1,7 +1,10 @@
 class OffersController < ApplicationController
-
   def index
-    @offers = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+    if params[:subject].present? && params[:subject].present?
+      @offers = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+    else
+      redirect_to root_path
+    end
   end
 
   def new
