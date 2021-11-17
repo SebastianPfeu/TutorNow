@@ -1,5 +1,6 @@
 class Offer < ApplicationRecord
   belongs_to :user
+  has_many :appointments
 
   validates :user, presence: true
   validates :subject, presence: true
