@@ -47,8 +47,9 @@ subjects.each do |subject|
       appointments = []
 
       # create 5 appointments per provider
+      date_time = rand(1..5).days.from_now.beginning_of_hour
       5.times do
-        date_time = rand(1..10).days.from_now.beginning_of_hour
+        date_time += 1.days
         appointment = Appointment.create!(user: nil, start_time: date_time, end_time: date_time + duration, offer: offer)
         appointments << appointment
         # 0.3 chance that appointment is booked
@@ -57,7 +58,7 @@ subjects.each do |subject|
           booked += 1
           # 0.3 chance that appointment is in the past
           if rand < 0.3
-            date_time = rand(-10..-1).days.from_now.beginning_of_hour
+            date_time -= 20.days
             appointment.update!(start_time: date_time, end_time: date_time + duration)
             past_booked += 1
           end

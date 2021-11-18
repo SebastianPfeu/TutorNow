@@ -13,7 +13,10 @@
             <div class="nav-link"><strong><%= current_user.first_name %></strong></div>
           </li>
           <li class="nav-item">
-            <a href="/users/sign_out" class="btn btn-primary rounded-pill text-white px-5 me-2"> Sign Out</a>
+            <a href="offers/new" class="btn btn-primary rounded-pill text-white px-5 me-2">Create offer</a>
+          </li>
+          <li class="nav-item">
+            <a href="/users/sign_out" class="btn btn-secondary rounded-pill text-white px-5 me-2" data-method="delete">Sign Out</a>
           </li>
         </ul>
       </div>
