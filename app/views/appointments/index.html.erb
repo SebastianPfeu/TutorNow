@@ -1,36 +1,29 @@
 <div class="container">
   <h1>Your booked appointments</h1>
-  <div>
+  <div data-controller="appointment">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <%= link_to "You as student", "#", class:"nav-link active" %>
+        <p class="nav-link active" data-action="click->appointment#toggleTabs" data-appointment-target="tabStudent">You as student</p>
       </li>
       <li class="nav-item">
-        <%= link_to "You as tutor", "#", class:"nav-link" %>
+        <p class="nav-link" data-action="click->appointment#toggleTabs" data-appointment-target="tabTutor">You as tutor</p>
       </li>
     </ul>
   </div>
 
-  <div class="row d-flex">
-    <% @appointments.each do |appointment| %>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="app-card">
-          <h4><%= appointment.offer.subject.capitalize %> - <%= appointment.offer.level %></h4>
-          <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
-          <div class="icon-size info-right">
-            <div>
-              <p><%= image_tag("logo/euro.png") %> <%= appointment.offer.price %></p>
-            </div>
-            <div>
-              <p>
-                <%= image_tag("logo/time.png") %> <%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
-                <%= appointment.end_time.to_s(:time) %>
-              </p>
-            </div>
-            <%= link_to "Cancel", appointment_path(appointment.id), method: "patch" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render "student" %>
+  <%= render "tutor" %>
+
+  <%# <script>
+    console.log("Stimmt");
+    const tabs = document.querySelectorAll("p.nav-link");
+    console.log(tabs[0].classList.contains("active"))
+    if (tabs[0].classList.contains("active")) {
+      document.getElementById("student-appointments").classList.remove("d-none");
+      document.getElementById("tutor-appointments").classList.add("d-none");
+    } else {
+      document.getElementById("student-appointments").classList.add("d-none");
+      document.getElementById("tutor-appointments").classList.remove("d-none");
+    }
+  </script> %>
 </div>
