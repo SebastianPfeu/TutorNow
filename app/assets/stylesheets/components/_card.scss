@@ -77,3 +77,19 @@ a {
   margin: 20px;
   padding: 10px;
 }
+
+.appointment-card {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 40px;
+  padding: 10px;
+  border-radius: 13px;
+  transition: 0.5s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.appointment-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
