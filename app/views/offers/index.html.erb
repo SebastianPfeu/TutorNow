@@ -12,19 +12,25 @@
     <% @offers.each do |offer| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
         <%= link_to new_offer_appointment_path(offer), class:"text-decoration-none color-black" do %> <!--new_offer_appointment_path(offer) -->
-          <div class="card " data-tilt>
+          <div class="card ">
               <%= image_tag "subject_pics/#{offer.subject.downcase}_pics/#{rand(1..5)}.png", class: 'image-fluid card-image' %>
             <div class="card-info d-flex justify-content-around mt-3">
-              <div>
+              <div class="cut-text">
                 <h2><%= offer.user.first_name %></h2>
                 <p><%= offer.description %></p>
               </div>
               <div class="icon-size info-right">
-                <div>
+                <div id="info-sizing-price">
                   <p><%= image_tag("logo/euro.png") %> <%= offer.price %></p>
                 </div>
-                <div>
-                  <p><%= image_tag("logo/time.png") %> 1:30h </p>
+                <div id="info-sizing-time">
+                  <% if offer.appointments.first %>
+                    <% first_a = offer.appointments.first %>
+                    <% duration = "#{(first_a.end_time - first_a.start_time).round / 60}" %>
+                  <% else %>
+                    <%= duration = "-" %>
+                  <% end %>
+                  <p><%= image_tag("logo/time.png") %> <%= duration %></p>
                 </div>
               </div>
             </div>
