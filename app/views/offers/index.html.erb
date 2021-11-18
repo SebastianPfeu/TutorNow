@@ -10,29 +10,27 @@
 <div class="container">
   <div class="row">
     <% @offers.each do |offer| %>
-      <% 5.times do  %>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <%= link_to new_offer_appointment_path(offer), class:"text-decoration-none color-black" do %> <!--new_offer_appointment_path(offer) -->
-            <div class="card " data-tilt>
-                <%= image_tag "subject_pics/#{offer.subject.downcase}_pics/#{rand(1..5)}.png", class: 'image-fluid card-image' %>
-              <div class="card-info d-flex justify-content-around mt-3">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <%= link_to new_offer_appointment_path(offer), class:"text-decoration-none color-black" do %> <!--new_offer_appointment_path(offer) -->
+          <div class="card " data-tilt>
+              <%= image_tag "subject_pics/#{offer.subject.downcase}_pics/#{rand(1..5)}.png", class: 'image-fluid card-image' %>
+            <div class="card-info d-flex justify-content-around mt-3">
+              <div>
+                <h2><%= offer.user.first_name %></h2>
+                <p><%= offer.description %></p>
+              </div>
+              <div class="icon-size info-right">
                 <div>
-                  <h2><%= offer.user.first_name %></h2>
-                  <p><%= offer.description %></p>
+                  <p><%= image_tag("logo/euro.png") %> <%= offer.price %></p>
                 </div>
-                <div class="icon-size info-right">
-                  <div>
-                    <p><%= image_tag("logo/euro.png") %> <%= offer.price %></p>
-                  </div>
-                  <div>
-                    <p><%= image_tag("logo/time.png") %> 1:30h </p>
-                  </div>
+                <div>
+                  <p><%= image_tag("logo/time.png") %> 1:30h </p>
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>

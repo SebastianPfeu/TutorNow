@@ -3,46 +3,71 @@
 #
 require 'date'
 
+start_time = Time.now
+puts "Destroying all data..."
+# destroy appointments, offers and users
 Appointment.destroy_all
 Offer.destroy_all
+User.destroy_all
 
-# Creates 10 offers
-Offer.create!(user: User.find_by(first_name: "Julius"), subject: "german", level: "beginner", price: 15, description: "I teach German")
-Offer.create!(user: User.find_by(first_name: "Julius"), subject: "physics", level: "advanced", price: 35, description: "I teach Physics")
-Offer.create!(user: User.find_by(first_name: "Julius"), subject: "chemistry", level: "intermediate", price: 25, description: "I teach Chemistry")
-Offer.create!(user: User.find_by(first_name: "Julius"), subject: "mathematics", level: "intermediate", price: 25, description: "I teach Mathematics")
-Offer.create!(user: User.find_by(first_name: "Julius"), subject: "english", level: "advanced", price: 30, description: "I teach English")
-Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "french", level: "beginner", price: 20, description: "I teach French")
-Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "spanish", level: "beginner", price: 20, description: "I teach Spanish")
-Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "geography", level: "advanced", price: 25, description: "I teach Geography")
-Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "history", level: "advanced", price: 28, description: "I teach History")
-Offer.create!(user: User.find_by(first_name: "Alexander"), subject: "sports", level: "intermediate", price: 22, description: "I teach German")
+puts "Creating users..."
+first_names = %w[Anette Birgit Christopher David Eric Felix George Harry Isabel James Katie Linda Matthew Noah Olivia Peter Quentin Rita Susan Tom Ursula Victoria William Xaver Yasmin Zoe]
+last_names = %w[Harrell Duke Cantu Fletcher Pearson Robinson Munoz Richmond Hernandez Conway Snyder Hernandez King Vazquez Bond Sutton Jennings Lee Hughes Garcia Johnson Mitchell Coleman Crawford Woods Johnson]
+users = []
+first_names.each do |name|
+  users << User.create!(email: "#{name.downcase}@gmail.com", password: "123456", password_confirmation: "123456", first_name: name, last_name: last_names.sample)
+end
 
-# Creates 20 appointments
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,11,18,2,0,0), end_time: DateTime.new(2021,11,18,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,11,19,2,0,0), end_time: DateTime.new(2021,11,19,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "physics"), start_time: DateTime.new(2021,11,20,2,0,0), end_time: DateTime.new(2021,11,20,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "physics"), start_time: DateTime.new(2021,11,21,2,0,0), end_time: DateTime.new(2021,11,21,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "chemistry"), start_time: DateTime.new(2021,11,22,2,0,0), end_time: DateTime.new(2021,11,22,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "chemistry"), start_time: DateTime.new(2021,11,23,2,0,0), end_time: DateTime.new(2021,11,23,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "mathematics"), start_time: DateTime.new(2021,11,24,2,0,0), end_time: DateTime.new(2021,11,24,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "mathematics"), start_time: DateTime.new(2021,11,25,2,0,0), end_time: DateTime.new(2021,11,25,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "english"), start_time: DateTime.new(2021,11,26,2,0,0), end_time: DateTime.new(2021,11,26,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Ursula"), offer: Offer.find_by(subject: "english"), start_time: DateTime.new(2021,11,27,2,0,0), end_time: DateTime.new(2021,11,27,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "french"), start_time: DateTime.new(2021,11,28,2,0,0), end_time: DateTime.new(2021,11,28,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "french"), start_time: DateTime.new(2021,11,29,2,0,0), end_time: DateTime.new(2021,11,29,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "spanish"), start_time: DateTime.new(2021,11,30,2,0,0), end_time: DateTime.new(2021,11,30,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "spanish"), start_time: DateTime.new(2021,12,1,2,0,0), end_time: DateTime.new(2021,12,1,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "geography"), start_time: DateTime.new(2021,12,2,2,0,0), end_time: DateTime.new(2021,12,2,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "geography"), start_time: DateTime.new(2021,12,3,2,0,0), end_time: DateTime.new(2021,12,3,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,4,2,0,0), end_time: DateTime.new(2021,12,4,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,5,2,0,0), end_time: DateTime.new(2021,12,5,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "sports"), start_time: DateTime.new(2021,12,6,2,0,0), end_time: DateTime.new(2021,12,6,3,0,0))
-Appointment.create!(user: User.find_by(first_name: "Anette"), offer: Offer.find_by(subject: "sports"), start_time: DateTime.new(2021,12,7,2,0,0), end_time: DateTime.new(2021,12,7,3,0,0))
+names = [%w[Alexander Meurer], %w[Daniel Schuster], %w[Julius Lang], %w[Sebastian Pfeufer]]
+names.each do |name|
+  User.create!(email: "#{name[0]}@gmail.com", password: "123456", password_confirmation: "123456", first_name: name[0], last_name: name[1])
+end
 
-# Create one unbooked appointment
-Appointment.create!(user: nil, offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,12,8,2,0,0), end_time: DateTime.new(2021,12,8,3,0,0))
-Appointment.create!(user: nil, offer: Offer.find_by(subject: "history"), start_time: DateTime.new(2021,12,9,2,0,0), end_time: DateTime.new(2021,12,9,3,0,0))
-Appointment.create!(user: nil, offer: Offer.find_by(subject: "mathematics"), start_time: DateTime.new(2021,12,10,2,0,0), end_time: DateTime.new(2021,12,10,3,0,0))
-Appointment.create!(user: nil, offer: Offer.find_by(subject: "english"), start_time: DateTime.new(2021,12,11,2,0,0), end_time: DateTime.new(2021,12,11,3,0,0))
-Appointment.create!(user: nil, offer: Offer.find_by(subject: "german"), start_time: DateTime.new(2021,12,12,2,0,0), end_time: DateTime.new(2021,12,12,3,0,0))
+subjects = %w[chemistry english german history mathematics physics]
+levels = %w[beginner intermediate advanced]
+greetings = ["Welcome", "Hi", "Hello", "Hey", "Hey there"]
+intros = ["I am", "my name is", "it's me,"]
+
+puts "Creating offers and appointments..."
+booked = 0
+past_booked = 0
+# iterate through each subject
+subjects.each do |subject|
+  puts "...for '#{subject}'"
+  # iterate through each level
+  levels.each do |level|
+    # iterate through 10 random users and make them offer providers
+    users.sample(10).each do |provider|
+      price = 10 * (levels.index(level) + 1)
+      name = [provider.first_name.to_s, "#{provider.first_name} #{provider.last_name}"]
+      description = "#{greetings.sample}, #{intros.sample} #{name} and I teach #{subject}."
+      offer = Offer.create!(user: provider, subject: subject, level: level, price: price, description: description)
+
+      duration = [30.minutes, 45.minutes, 60.minutes, 90.minutes].sample
+      appointments = []
+
+      # create 5 appointments per provider
+      5.times do
+        date_time = rand(1..10).days.from_now.beginning_of_hour
+        appointment = Appointment.create!(user: nil, start_time: date_time, end_time: date_time + duration, offer: offer)
+        appointments << appointment
+        # 0.3 chance that appointment is booked
+        if rand < 0.3
+          appointment.update!(user: users.reject { |a_user| a_user == offer.user }.sample)
+          booked += 1
+          # 0.3 chance that appointment is in the past
+          if rand < 0.3
+            date_time = rand(-10..-1).days.from_now.beginning_of_hour
+            appointment.update!(start_time: date_time, end_time: date_time + duration)
+            past_booked += 1
+          end
+        end
+      end
+    end
+  end
+end
+
+end_time = Time.now
+diff = (end_time - start_time).round(2)
+puts "Finished in #{diff} seconds!"
+puts "Created #{User.count} users, #{Offer.count} offers and #{Appointment.count} (#{Appointment.where(user_id: nil).count} free / #{booked} booked / #{past_booked} past booked) appointments"
