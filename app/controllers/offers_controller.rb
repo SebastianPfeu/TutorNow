@@ -1,6 +1,8 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
-    if params[:subject].present? && params[:subject].present?
+    if params[:subject].present? && params[:level].present?
       @offers = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
     else
       redirect_to root_path
@@ -20,11 +22,10 @@ class OffersController < ApplicationController
     @end_time = @start_time + params[:duration].to_i.minutes
     if @offer.save
       # TODO: check if appointment is valid
-      Appointment.create!(start_time: @start_time, end_time: @end_time, offer_id: @offer.id)
-      redirect_to root_path
-    else
-      render :new
+      @appointment = Appointment.new(start_time: @start_time, end_time: @end_time, offer_id: @offer.id)
+      return redirect_to root_path if appointment.save
     end
+    render :new
   end
 
   private
