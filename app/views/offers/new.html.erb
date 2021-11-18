@@ -4,6 +4,24 @@
     <%= f.input :level, collection: [ "beginner", "intermediate", "advanced" ] %>
     <%= f.input :price %>
     <%= f.input :description %>
+    <div>
+      <label for="start_date">Start date:</label>
+      <input type="date"
+        name="start_date" value=<%= DateTime.now%>
+      min=<%= DateTime.now%> max=<%= DateTime.now + 28.days%>>
+    </div>
+    <br>
+    <div>
+      <label for="start_time">Duration:</label>
+      <input type="integer" name="duration" duration=>
+    </div>
+    <br>
+    <div class="field">
+      <p id="time">
+        <%= label_tag "hours", "Time" %>
+        <%= hour_selector("hours", @appointment) %>
+      </p>
+    </div>
     <%= f.submit %>
   <% end %>
 </div>
