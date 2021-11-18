@@ -7,12 +7,24 @@
   margin: 20px;
   transition: 0.5s ease;
   cursor: pointer;
+  position: relative;
 }
 
 .card:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
 
+}
+
+.cut-text{
+  position: absolute;
+  left: 5%;
+  width: 60%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-image {
@@ -25,6 +37,18 @@
 
 .icon-size img {
   width: 25px;
+}
+
+
+#info-sizing-price {
+  position: absolute;
+  right: 4%;
+}
+
+#info-sizing-time {
+  position: absolute;
+  right: 4%;
+  bottom: 10%;
 }
 
 .info-right div {
