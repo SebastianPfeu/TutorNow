@@ -13,7 +13,10 @@
             <div class="nav-link"><strong><%= current_user.first_name %></strong></div>
           </li>
           <li class="nav-item">
-            <a href="/users/sign_out" class="btn btn-primary rounded-pill text-white px-5 me-2"> Sign Out</a>
+            <%= link_to "Create offer", new_offer_path, class:"btn btn-primary rounded-pill text-white px-5 me-2" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-secondary rounded-pill text-white px-5 me-2" %>
           </li>
         </ul>
       </div>
@@ -21,10 +24,10 @@
       <div class="collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav ms-auto">
           <li>
-            <a href="/users/sign_up" class="btn btn-primary rounded-pill text-white px-5 me-2"> Sign Up</a>
+            <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary rounded-pill text-white px-5 me-2" %>
           </li>
           <li class="nav-item">
-            <a href="/users/sign_in" class="btn btn-outline-danger rounded-pill px-5 me-2">Login</a>
+            <%= link_to "Sign In", new_user_session_path, class:"btn btn-outline-danger rounded-pill px-5 me-2" %>
           </li>
         </ul>
       </div>

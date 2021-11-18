@@ -1,11 +1,12 @@
 <div class="container">
+  <h1>Your booked appointments</h1>
   <div>
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">You as student</a>
+        <%= link_to "You as student", "#", class:"nav-link active" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">You as teacher</a>
+        <%= link_to "You as tutor", "#", class:"nav-link" %>
       </li>
     </ul>
   </div>
@@ -14,16 +15,19 @@
     <% @appointments.each do |appointment| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="app-card">
-          <h4><%= appointment.offer.subject.capitalize %></h4>
+          <h4><%= appointment.offer.subject.capitalize %> - <%= appointment.offer.level %></h4>
           <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
           <div class="icon-size info-right">
             <div>
-              <p><%= image_tag("logo/euro.png") %><%= appointment.offer.price %></p>
+              <p><%= image_tag("logo/euro.png") %> <%= appointment.offer.price %></p>
             </div>
             <div>
-              <p><%= image_tag("logo/time.png") %><%= appointment.start_time %></p>
-              <p class=""><%= appointment.end_time %></p>
+              <p>
+                <%= image_tag("logo/time.png") %> <%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
+                <%= appointment.end_time.to_s(:time) %>
+              </p>
             </div>
+            <%= link_to "Cancel", appointment_path(appointment.id), method: "patch" %>
           </div>
         </div>
       </div>

@@ -1,8 +1,29 @@
-<form action="/offers/<%= @offer.id %>/appointments" method="post">
-  <% @free_appointments.each do |appointment| %>
-    <input type="radio" id="<%= appointment.start_time %>" name="id" value="<%= appointment.id %>">
-    <label for="<%= appointment.start_time %>"><%= appointment.start_time %></label>
-  <% end %>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <input type="submit" value="Book now" class="btn btn-primary">
-</form>
+<div class="container">
+  <div class="appointment-selection-header">
+    <h1><%= @offer.subject.capitalize %> (<%= @offer.level %>) by <%= @offer.user.first_name %>
+        <%= @offer.user.last_name %>
+    </h1>
+    <h3>Please choose an appointment below</h3>
+  </div>
+  <form action="/offers/<%= @offer.id %>/appointments" method="post">
+    <div>
+      <div class="row">
+        <% @free_appointments.each do |appointment| %>
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="appointment">
+              <input type="radio" id="<%= appointment.start_time %>" name="id" value="<%= appointment.id %>">
+              <label for="<%= appointment.start_time %>">
+                <%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
+                <%= appointment.end_time.to_s(:time) %>
+              </label>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </div>
+    <div>
+      <input type="submit" value="Book now" class="btn btn-primary">
+    </div>
+  </form>
+</div>
