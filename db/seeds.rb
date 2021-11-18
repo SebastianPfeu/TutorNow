@@ -39,7 +39,7 @@ subjects.each do |subject|
     # iterate through 10 random users and make them offer providers
     users.sample(10).each do |provider|
       price = 10 * (levels.index(level) + 1)
-      name = [provider.first_name.to_s, "#{provider.first_name} #{provider.last_name}"]
+      name = [provider.first_name.to_s, "#{provider.first_name} #{provider.last_name}"].sample
       description = "#{greetings.sample}, #{intros.sample} #{name} and I teach #{subject}."
       offer = Offer.create!(user: provider, subject: subject, level: level, price: price, description: description)
 
