@@ -1,24 +1,24 @@
 <div id="tutor-appointments" class="d-none">
-    <div class="row d-flex">
-      <% @tutor_appointments.each do |appointment| %>
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="appointment-border appointment-background-<%= appointment.offer.subject%>">
-            <h4><%= appointment.offer.subject.capitalize %> - <%= appointment.offer.level %></h4>
-            <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
-            <div class="icon-size info-appointment">
-              <div>
-                <p><%= image_tag("logo/euro-white.png") %> <%= appointment.offer.price %></p>
-              </div>
-              <div>
-                <p>
-                  <%= image_tag("logo/time-white.png") %><%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
-                  <%= appointment.end_time.to_s(:time) %>
-                </p>
-              </div>
-               <button class="cancel-button"><%= link_to "Cancel", appointment_path(appointment.id), method: "patch" %></button>
+  <div class="row d-flex">
+    <% @tutor_appointments.each do |appointment| %>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="appointment-border appointment-background-<%= appointment.offer.subject%>">
+          <h4><%= appointment.offer.subject.capitalize %> - <%= appointment.offer.level %></h4>
+          <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
+          <div class="icon-size info-right">
+            <div>
+              <p><%= image_tag("logo/euro.png") %> <%= appointment.offer.price %></p>
             </div>
+            <div>
+              <p>
+                <%= image_tag("logo/time.png") %> <%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
+                <%= appointment.end_time.to_s(:time) %>
+              </p>
+            </div>
+            <button class="cancel-button"><%= link_to "Cancel", appointment_path(appointment.id), method: "patch", data: { confirm: "Are you sure?" } %></button>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>

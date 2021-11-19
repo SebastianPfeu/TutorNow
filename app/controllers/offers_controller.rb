@@ -3,7 +3,8 @@ class OffersController < ApplicationController
 
   def index
     if params[:subject].present? && params[:level].present?
-      @offers = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+      @offers_all = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+      @offers = @offers_all.reject { |offer| offer.appointments.where(user: nil).length.zero? }
     else
       redirect_to root_path
     end
@@ -23,7 +24,7 @@ class OffersController < ApplicationController
     if @offer.save
       # TODO: check if appointment is valid
       @appointment = Appointment.new(start_time: @start_time, end_time: @end_time, offer_id: @offer.id)
-      return redirect_to root_path if appointment.save
+      return redirect_to root_path if @appointment.save
     end
     render :new
   end

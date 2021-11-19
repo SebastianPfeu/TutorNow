@@ -1,7 +1,8 @@
+<%= render "shared/back_button" %>
 <div class="container">
   <h1>Your booked appointments</h1>
   <div data-controller="appointment">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs d-flex justify-content-center">
       <li class="nav-item">
         <p class="nav-link active" data-action="click->appointment#toggleTabs" data-appointment-target="tabStudent">You as student</p>
       </li>

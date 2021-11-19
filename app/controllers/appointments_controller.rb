@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   def index
-    @student_appointments = current_user.student_appointments
-    @tutor_appointments = current_user.tutor_appointments
+    @student_appointments = current_user.student_appointments.sort_by(&:start_time).reject { |a| a.start_time < DateTime.now }
+    @tutor_appointments = current_user.tutor_appointments.sort_by(&:start_time).reject { |a| a.start_time < DateTime.now }
   end
 
   def new
@@ -23,6 +23,12 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     @appointment.user = nil
     @appointment.save
+    redirect_to my_appointments_path
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
     redirect_to my_appointments_path
   end
 
