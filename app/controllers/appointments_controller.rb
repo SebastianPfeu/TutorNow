@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.where(user: current_user)
+    @student_appointments = current_user.student_appointments
+    @tutor_appointments = current_user.tutor_appointments
   end
 
   def new

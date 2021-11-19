@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :student_appointments, class_name: "Appointment"
+  has_many :offers
+  has_many :tutor_appointments, through: :offers, source: :appointments
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
