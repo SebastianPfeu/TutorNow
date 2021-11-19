@@ -1,5 +1,5 @@
+<%= render "shared/back_button" %>
 <div class="container">
-  <%= render "shared/back_button" %>
   <%= simple_form_for(@offer) do |f| %>
     <%= f.input :subject %>
     <%= f.input :level, collection: [ "beginner", "intermediate", "advanced" ] %>
