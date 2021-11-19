@@ -3,7 +3,8 @@ class OffersController < ApplicationController
 
   def index
     if params[:subject].present? && params[:level].present?
-      @offers = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+      @offers_all = Offer.where(subject: params[:subject].downcase, level: params[:level].downcase)
+      @offers = @offers_all.reject { |offer| offer.appointments.where(user: nil).length.zero? }
     else
       redirect_to root_path
     end
