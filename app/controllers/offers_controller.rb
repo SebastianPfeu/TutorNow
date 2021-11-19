@@ -24,7 +24,7 @@ class OffersController < ApplicationController
     if @offer.save
       # TODO: check if appointment is valid
       @appointment = Appointment.new(start_time: @start_time, end_time: @end_time, offer_id: @offer.id)
-      return redirect_to root_path if appointment.save
+      return redirect_to root_path if @appointment.save
     end
     render :new
   end
