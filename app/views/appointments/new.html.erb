@@ -1,4 +1,7 @@
 <div class="container">
+    <%= link_to (:back) do %>
+      <%= render "shared/back_button" %>
+    <% end %>
   <br>
       <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("subject_pics/#{@offer.subject.downcase}_pics/#{rand(1..5)}.png") %>) ">
         <div class="d-md-flex align-items-center justify-content-between">

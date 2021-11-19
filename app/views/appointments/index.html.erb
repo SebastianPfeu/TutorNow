@@ -1,6 +1,9 @@
 <div class="container">
   <h1>Your booked appointments</h1>
   <div data-controller="appointment">
+    <%= link_to (:back) do %>
+      <%= render "shared/back_button" %>
+    <% end %>
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <p class="nav-link active" data-action="click->appointment#toggleTabs" data-appointment-target="tabStudent">You as student</p>
