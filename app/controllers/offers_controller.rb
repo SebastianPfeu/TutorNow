@@ -19,12 +19,11 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     @start_time = DateTime.parse(params[:start_date])
-    @start_time += params[:hours].to_i.hours
-    @end_time = @start_time + params[:duration].to_i.minutes
+    @start_time += params[:hours].to_i.hours || 8.hours
+    @end_time = @start_time + (params[:duration].to_i.minutes || 90.minutes)
     if @offer.save
-      # TODO: check if appointment is valid
       @appointment = Appointment.new(start_time: @start_time, end_time: @end_time, offer_id: @offer.id)
-      return redirect_to root_path if @appointment.save
+      return redirect_to my_appointments_path, notice: "Successfully created offer" if @appointment.save
     end
     render :new
   end
