@@ -1,4 +1,7 @@
-<%= render "shared/back_button" %>
+<%= link_to root_path do %>
+  <i class="fas fa-chevron-circle-left" style="width: 100px"></i>
+<% end %>
+
 <div class="m-3">
   <% if @offers.first %>
   <h1> <%= @offers.first.subject.capitalize %></h1>
