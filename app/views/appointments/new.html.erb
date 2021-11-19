@@ -1,7 +1,4 @@
-<%= link_to offer_appointments_path do %>
-  <i class="fas fa-chevron-circle-left" style="width: 100px"></i>
-<% end %>
-
+<%= render "shared/back_button" %>
 <div class="container">
   <br>
       <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("subject_pics/#{@offer.subject.downcase}_pics/#{rand(1..5)}.png") %>) ">
