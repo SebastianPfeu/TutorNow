@@ -15,7 +15,7 @@
                   <%= appointment.end_time.to_s(:time) %>
                 </p>
               </div>
-              <%= link_to "Cancel", appointment_path(appointment.id), method: "patch" %>
+              <%= link_to "Cancel", appointment_path(appointment.id), method: :patch, data: { confirm: "Are you sure?" } %>
             </div>
           </div>
         </div>
