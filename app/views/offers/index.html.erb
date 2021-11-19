@@ -1,17 +1,17 @@
 <%= link_to root_path do %>
   <i class="fas fa-chevron-circle-left" style="width: 100px"></i>
 <% end %>
-
-<div class="m-3">
-  <% if @offers.first %>
-  <h1> <%= @offers.first.subject.capitalize %></h1>
-  <h1 class="fw-light"> <%= @offers.first.level.capitalize %></h1>
-  <% else %>
-  <h1>No offers regarding your search</h1>
-  <% end %>
-</div>
-<br>
 <div class="container">
+  <div class="m-3">
+    <% if @offers.first %>
+      <div class="d-flex">
+        <h1> <%= @offers.first.subject.capitalize %> <span class="fw-light"><%= @offers.first.level.capitalize %></span></h1>
+      </div>
+    <% else %>
+      <h1>No offers regarding your search</h1>
+    <% end %>
+  </div>
+<br>
   <div class="row">
     <% @offers.each do |offer| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
