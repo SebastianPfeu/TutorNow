@@ -1,39 +1,42 @@
 <div class="container">
   <br>
-      <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("subject_pics/#{@offer.subject.downcase}_pics/#{rand(1..5)}.png") %>) ">
-        <div class="d-md-flex align-items-center justify-content-between">
-          <div class="text-center text-md-start">
-            <h1><%= @offer.subject.capitalize %> (<%= @offer.level.capitalize %>)</h1>
-            <p>by <%= @offer.user.first_name.capitalize %> <%= @offer.user.last_name.capitalize %></p>
-          </div>
-          <div class="text-center text-md-start">
-            <h4>Description</h4>
-            <p><%= @offer.description %></p>
-          </div>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("subject_pics/#{@offer.subject.downcase}_pics/#{rand(1..5)}.png") %>) ">
+      <div class="d-md-flex align-items-center justify-content-between">
+        <div class="text-center text-md-start">
+          <h1><%= @offer.subject.capitalize %> (<%= @offer.level.capitalize %>)</h1>
+          <p>by <%= @offer.user.first_name.capitalize %> <%= @offer.user.last_name.capitalize %></p>
+        </div>
+        <div class="text-center text-md-start">
+          <h4>Description</h4>
+          <p><%= @offer.description %></p>
         </div>
       </div>
-
-    <h4>Please choose an appointment below</h4>
-    <br>
-    <form action="/offers/<%= @offer.id %>/appointments" method="post">
-      <div>
-        <div class="row">
-          <% @free_appointments.each do |appointment| %>
-            <div class="col-sm-12 col-md-6 col-lg-4">
-              <div class="appointment appointment-card">
-                <input type="radio" id="<%= appointment.start_time %>" name="id" value="<%= appointment.id %>">
-                <label for="<%= appointment.start_time %>">
-                  <%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
-                  <%= appointment.end_time.to_s(:time) %>
-                </label>
+    </div>
+    <% if @offer.user != current_user %>
+      <h4>Please choose an appointment below</h4>
+      <br>
+      <form action="/offers/<%= @offer.id %>/appointments" method="post">
+        <div>
+          <div class="row">
+            <% @free_appointments.each do |appointment| %>
+              <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="appointment appointment-card">
+                  <input type="radio" id="<%= appointment.start_time %>" name="id" value="<%= appointment.id %>">
+                  <label for="<%= appointment.start_time %>">
+                    <%= appointment.start_time.to_formatted_s(:long_ordinal)%> -
+                    <%= appointment.end_time.to_s(:time) %>
+                  </label>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         </div>
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      </div>
-      <div>
-        <input type="submit" value="Book now" class="btn btn-primary">
-      </div>
-    </form>
+        <div>
+          <input type="submit" value="Book now" class="btn btn-primary">
+        </div>
+      </form>
+    <% else %>
+      <h4>This is your own offer. Please select another one to pick an appointment.</h4>
+    <% end %>
 </div>
