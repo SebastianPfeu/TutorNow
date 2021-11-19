@@ -47,7 +47,6 @@
   border: 2px solid $physic-blue;
 }
 
-
 .appointment-background-german {
   background-color: $german-yellow;
 }
@@ -91,22 +90,9 @@
 
 .cancel-button {
   background-color: rgba(255, 255, 255, 0.267);
-  color: white !important;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0);
-} a {
- color: white !important;
-}
-
-.cancel-button {
-  background-color: rgba(255, 255, 255, 0.267);
-  color: white !important;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0);
-} a {
- color: white !important;
 }
 
 .cancel-button:hover {
