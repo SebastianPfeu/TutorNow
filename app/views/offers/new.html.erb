@@ -1,7 +1,7 @@
 <%= render "shared/back_button" %>
 <div class="container">
   <%= simple_form_for(@offer) do |f| %>
-    <%= f.input :subject %>
+    <%= f.input :subject, collection: [ "chemistry", "english", "german", "history", "mathematics", "physics" ] %>
     <%= f.input :level, collection: [ "beginner", "intermediate", "advanced" ] %>
     <%= f.input :price %>
     <%= f.input :description %>
@@ -13,8 +13,8 @@
       >
     </div>
     <div class="mb-3">
-      <label for="start_time">Duration</label>
-      <input type="integer" name="duration" duration=>
+      <label for="duration">Duration in minutes</label>
+      <input type="integer" name="duration">
     </div>
     <div class="mb-3">
       <p id="time">
