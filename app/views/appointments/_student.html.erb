@@ -2,7 +2,7 @@
   <div class="row d-flex">
     <% @student_appointments.each do |appointment| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="appointment-border appointment-border-<%= appointment.offer.subject%>">
+        <div class="appointment-border appointment-border-<%= appointment.offer.subject%> opacity-75">
           <h4><%= appointment.offer.subject.capitalize %> - <%= appointment.offer.level %></h4>
           <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
           <div class="icon-size info-right">

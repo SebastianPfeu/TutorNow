@@ -1,10 +1,10 @@
  <%= render "shared/back_button" %>
 <div class="container">
   <br>
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("subject_pics/#{@offer.subject.downcase}_pics/#{rand(1..5)}.png") %>) ">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= asset_path("subject_pics/#{@offer.subject.downcase}_pics/#{rand(1..5)}.png") %>) ">
       <div class="d-md-flex align-items-center justify-content-between">
         <div class="text-center text-md-start">
-          <h1><%= @offer.subject.capitalize %> (<%= @offer.level.capitalize %>)</h1>
+          <h1><%= @offer.subject.capitalize %> <%= @offer.level.capitalize %></h1>
           <p>by <%= @offer.user.first_name.capitalize %> <%= @offer.user.last_name.capitalize %></p>
         </div>
         <div class="text-center text-md-start">
@@ -34,7 +34,7 @@
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         </div>
         <div>
-          <input type="submit" value="Book now" class="btn btn-primary">
+          <input type="submit" value="Book now" class="btn btn-primary mb-5">
         </div>
       </form>
     <% else %>
