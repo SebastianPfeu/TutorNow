@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :appointments, only: %i[new create]
   end
 
-  resources :appointments, only: %i[update]
+  resources :appointments, only: %i[update destroy]
 
   # Customized routes
   get "/my_appointments", to: "appointments#index", as: :my_appointments
