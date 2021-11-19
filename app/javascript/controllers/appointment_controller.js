@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["tabStudent", "tabTutor"]
 
   connect() {
-    console.log("Hello from your first Stimulus controller")
   }
 
   toggleTabs(event) {
