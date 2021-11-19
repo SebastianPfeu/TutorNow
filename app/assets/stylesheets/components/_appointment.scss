@@ -1,3 +1,5 @@
+@import 'color';
+
 .appointment {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -10,4 +12,103 @@
 
 .nav-link:hover {
   cursor: pointer;
+}
+
+.appointment-border {
+  background-color: rgb(243, 243, 243);
+  border-radius: 13px;
+  margin-bottom: 30px;
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.appointment-border-german {
+  border: 2px solid $german-yellow;
+}
+
+.appointment-border-chemistry {
+  border: 2px solid $bio-green;
+}
+
+.appointment-border-english {
+  border: 2px solid $english-green;
+}
+
+.appointment-border-history {
+  border: 2px solid $history-orange;
+}
+
+.appointment-border-mathematics {
+  border: 2px solid $math-red;
+}
+
+.appointment-border-physics {
+  border: 2px solid $physic-blue;
+}
+
+
+.appointment-background-german {
+  background-color: $german-yellow;
+}
+
+.appointment-background-chemistry {
+  color: white;
+  background-color: $bio-green;
+}
+
+.appointment-background-english {
+  color: white;
+  background-color: $english-green;
+}
+
+.appointment-background-history {
+  color: white;
+  background-color: $history-orange;
+}
+
+.appointment-background-mathematics {
+  color: white;
+  background-color: $math-red;
+}
+
+.appointment-background-physics {
+  color: white;
+  background-color: $physic-blue;
+}
+
+.info-appointment div {
+  background-color: rgba(255, 255, 255, 0.267);
+  color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  padding: 9px;
+  margin-bottom: 10px;
+  p {
+    margin: 0;
+  }
+}
+
+.cancel-button {
+  background-color: rgba(255, 255, 255, 0.267);
+  color: white !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0);
+} a {
+ color: white !important;
+}
+
+.cancel-button {
+  background-color: rgba(255, 255, 255, 0.267);
+  color: white !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0);
+} a {
+ color: white !important;
+}
+
+.cancel-button:hover {
+  background-color: rgba(104, 104, 104, 0.644);
 }

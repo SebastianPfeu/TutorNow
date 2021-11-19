@@ -2,7 +2,7 @@
   <div class="row d-flex">
     <% @student_appointments.each do |appointment| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="app-card">
+        <div class="appointment-border appointment-border-<%= appointment.offer.subject%>">
           <h4><%= appointment.offer.subject.capitalize %> - <%= appointment.offer.level %></h4>
           <p><%= appointment.offer.user.first_name.capitalize %> <%= appointment.offer.user.last_name %></p>
           <div class="icon-size info-right">
@@ -15,7 +15,7 @@
                 <%= appointment.end_time.to_s(:time) %>
               </p>
             </div>
-            <%= link_to "Cancel", appointment_path(appointment.id), method: :patch, data: { confirm: "Are you sure?" } %>
+            <button class="cancel-button"><%= link_to "Cancel", appointment_path(appointment.id), method: "patch", data: { confirm: "Are you sure?" } %></button>
           </div>
         </div>
       </div>
