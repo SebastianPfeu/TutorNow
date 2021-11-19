@@ -53,7 +53,7 @@
 
 .info-right div {
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
   border-radius: 10px;
   padding: 9px;
   margin-bottom: 10px;
@@ -71,7 +71,7 @@ a {
 
 .app-card {
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
   border-radius: 13px;
   margin-bottom: 30px;
   margin: 20px;
@@ -80,7 +80,7 @@ a {
 
 .appointment-card {
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
   height: 40px;
   padding: 10px;
   border-radius: 13px;
@@ -92,4 +92,23 @@ a {
 .appointment-card:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+
+.app-card-mathematics {
+  background-color: $math-red;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 13px;
+  margin-bottom: 30px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.app-card-chemistry {
+  background-color: $bio-green;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 13px;
+  margin-bottom: 30px;
+  margin: 20px;
+  padding: 10px;
 }
